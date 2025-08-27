@@ -1,0 +1,1 @@
+// Q:2 create a mobile brand and model filtering app with filter mobile brand and then second drop-down have same brand mobile in second drop-down and a single search button when click the selected brand and model have shown in html body
