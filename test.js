@@ -5,42 +5,42 @@
       Oppo: ["Reno 11", "A58"]
     };
 
-    const brandDropdown = document.getElementById("brand");
-    const modelDropdown = document.getElementById("model");
-    const btnSearch = document.getElementById("searchBtn");
-    const resultBox = document.getElementById("result");
+    const branddrop = document.getElementById("brand");
+    const modeldrop = document.getElementById("model");
+    const searchBtn = document.getElementById("searchBtn");
+    const result = document.getElementById("result");
 
     // load brands
     for (let brand in mobileData) {
       let opt = document.createElement("option");
       opt.value = brand;
       opt.textContent = brand;
-      brandDropdown.appendChild(opt);
+     branddrop.appendChild(opt);
     }
 
     // when brand changes
-    brandDropdown.addEventListener("change", function() {
-      modelDropdown.innerHTML = '<option value="">-- Select Model --</option>';
+   branddrop.addEventListener("change", function() {
+      modeldrop.innerHTML = '<option value="">-- Select Model --</option>';
       if (this.value) {
         mobileData[this.value].forEach(model => {
           let opt = document.createElement("option");
           opt.value = model;
           opt.textContent = model;
-          modelDropdown.appendChild(opt);
+          modeldrop.appendChild(opt);
         });
-        modelDropdown.disabled = false;
+        modeldrop.disabled = false;
       } else {
-        modelDropdown.disabled = true;
+        modeldrop.disabled = true;
       }
-      btnSearch.disabled = true;
+      searchBtn.disabled = true;
     });
 
     // enable button
-    modelDropdown.addEventListener("change", function() {
-      btnSearch.disabled = this.value === "";
+    modeldrop.addEventListener("change", function() {
+      searchBtn.disabled = this.value === "";
     });
 
     // show result
-    btnSearch.addEventListener("click", function() {
-      resultBox.textContent = `You selected ${brandDropdown.value} - ${modelDropdown.value}`;
+    searchBtn.addEventListener("click", function() {
+      result.textContent = `You selected ${branddrop.value} - ${modeldrop.value}`;
     });
